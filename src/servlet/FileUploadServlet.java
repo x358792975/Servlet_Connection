@@ -1,8 +1,8 @@
 package servlet;
-
+ 
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
+//import java.io.PrintWriter;
  
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -12,11 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
  
-@WebServlet("/htmlC.html")
+@WebServlet("/FileUploadServlet")
 @MultipartConfig(fileSizeThreshold=1024*1024*10, 	// 10 MB 
                  maxFileSize=1024*1024*50,      	// 50 MB
                  maxRequestSize=1024*1024*100)   	// 100 MB
-public class Servlet_Connection extends HttpServlet {
+public class FileUploadServlet extends HttpServlet {
  
     private static final long serialVersionUID = 205242440643911308L;
 	
@@ -52,7 +52,7 @@ public class Servlet_Connection extends HttpServlet {
                 request, response);
         
         //Below is added for parsing EHR
-		//DecodeCCDA parsed = new DecodeCCDA(uploadFilePath + File.separator + fileName);
+		 //DecodeCCDA parsed = new DecodeCCDA(uploadFilePath + File.separator + fileName);
 
 		
 		//writeToResponse(response, parsed.getjson());
@@ -72,9 +72,9 @@ public class Servlet_Connection extends HttpServlet {
         }
         return "";
     }
+     
     
-    
-	private void writeToResponse(HttpServletResponse resp, String results) throws IOException {
+	/*private void writeToResponse(HttpServletResponse resp, String results) throws IOException {
 		PrintWriter writer = new PrintWriter(resp.getOutputStream());
 		resp.setContentType("text/plain");
 
@@ -84,7 +84,7 @@ public class Servlet_Connection extends HttpServlet {
 			writer.write(results);
 		}
 		writer.close();
-	}	
+	}	*/
 	
 	
 }
